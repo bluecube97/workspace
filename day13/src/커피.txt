@@ -1,0 +1,61 @@
+List 사용
+메뉴 list, 가격 list 추가 
+할인 카드 옵션 기능 (추가점)
+최초 시작 시 사용자(고객) 운영자 로 나눠서 프로그램 실행
+운영자로 진행 시 password 확인 기능 (1111 정도) 
+운영자 진행 시 메뉴 추가와 가격 변경 가능
+
+클래스
+coffee_main	// main클래스
+coffee_admin	// 운영자 클래스
+coffee_adminVO	// 운영자 관련 변수 저장
+coffee_customer	// 손님 클래스
+coffee_customerVO	// 손님 관련 변수 저장
+coffee_machine	// 프로그램이 작동하는 클래스
+
+coffee_admin_메서드
+input_pw()	// 비밀번호 입력
+add_menu()	// 메뉴 추가
+del_menu()	// 메뉴 삭제
+alt_price()	// 가격 변경
+cat_menu()	// 현재 등록된 메뉴와 가격 출력
+exit_admin()	// 운영자 모드 종료
+
+coffee_adminVO_변수
+
+coffee_customer_메서드
+cat_menu()	// 메뉴판 출력
+sel_menu()	// 메뉴 선택
+sel_cnt()		// 개수 선택
+del_order()	// 주문 수정(삭제)
+coffee_price()	// 가격 계산
+output_result()	// 선택한 메뉴, 개수, 총 가격 출력
+
+coffee_customerVO_변수
+List<String> menu	// 메뉴 이름을 담는 리스트
+List<Integer> price	// 메뉴의 가격을 담는 리스트 (메뉴 리스트와 인덱스가 같으면 해당 메뉴의 가격)
+List<HashMap<String, Object>> orderList	// 주문한 메뉴와 개수를 담는 해시맵리스트 (ex. [(menu = 1), (cnt = 3)])
+HashMap<String, Object> orderMap	// orderList에 들어갈 해시맵 (ex. (menu = 1), (cnt = 3))
+
+coffee_machine_메서드
+first_view()	// 초기화면
+customer_view()	// 사용자 화면
+admin_view()	// 관리자 화면
+
+초기화면
+1. 일반 사용 2. admin 모드 진입
+
+1-1. 메뉴 입력
+1-2. 개수 입력
+1-3. 1. 추가 주문 2. 주문 수정(삭제) 3. 주문완
+1-3-1. 1-1로 돌아감
+1-3-2. 삭제할 메뉴 번호를 입력받아 orderList에서 해당 인덱스의 항목 삭제 -> 삭제 한 인덱스의 뒤에 있는 값 수정(orderNm--)
+1-3-3. 할인카드가 있으면 10퍼 할인 후 1-4로 넘어감 / 없으면 그냥 1-4로 넘어감
+1-4. output_result()를 호출하고 초기화면으로 돌아감
+
+2-1. 비밀번호 입력(틀리면 초기화면으로 돌아감)
+2-2. 1. 메뉴 추가 2. 메뉴 삭제 3. 가격 변경 4. 운영자 모드 종료
+2-2-1. menu 리스트에 메뉴 이름과 가격을 입력받아 add -> 무한반복되며, exit를 입력받으면 2-2로 돌아감
+2-2-2. 삭제할 메뉴의 index 값을 받아 menu 리스트와 price 리스트의 해당 인덱스값 삭제 -> 무한반복되며, exit를 입력받으면 2-2로 돌아감
+2-2-3. 가격을 변경할 메뉴의 index 값을 받아 price 리스트의 해당 인덱스값 교체 -> 무한반복되며, exit를 입력받으면 2-2로 돌아감
+2-2-4. 초기화면으로 돌아감
