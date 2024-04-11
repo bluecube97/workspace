@@ -45,7 +45,6 @@ public class boardDAO {
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, "%" + bv.getKeyword() + "%");
 			rs = psmt.executeQuery();
-			System.out.println("List의 sql = " + sql);
 			
 			while (rs.next()) {
 				HashMap<String, Object> map = new HashMap<String, Object>();
@@ -86,7 +85,6 @@ public class boardDAO {
 			con = connectionProvider.getConnection();
 			psmt = con.prepareStatement(sql);
 			psmt.setString(1, "%" + bv.getKeyword() + "%");
-			System.out.println("ListCount의 sql = " + sql);
 			rs = psmt.executeQuery();			
 			
 			if (rs.next()) {
