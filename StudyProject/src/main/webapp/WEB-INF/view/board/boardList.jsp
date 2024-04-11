@@ -17,6 +17,14 @@
 	<c:set var="startPage" value="${vpage-(vpage-1)%5}"></c:set>
 	<c:set var="lastPage"
 		value="${fn:substringBefore(Math.ceil(count/10),'.')}" />
+	
+	<div>userid = ${userMap.userid }</div>
+	<div>usernm = ${userMap.usernm }</div>
+	<div>userno = ${userMap.userno }</div>
+	<div>userrole = ${userMap.userrole }</div>
+	<div>userdept = ${userMap.userdept }</div>
+	<div>useremail = ${userMap.useremail }</div>
+	
 
 	<!-- 전체건수, 검색조건, 로그인, 로그아웃 -->
 	<!-- 전체건수 -->

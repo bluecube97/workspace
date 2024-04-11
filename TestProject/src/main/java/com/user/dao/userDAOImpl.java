@@ -46,7 +46,7 @@ public class userDAOImpl implements userDAO {
 				+ " cu.USEREMAIL as useremail "
 				+ " FROM COM_USER cu "
 				+ " where cu.USERID = ? "
-				+ " and cu.USERPW = ? "
+				+ " and cu.USERPW = sha2(?, 256) "
 				+ " LIMIT 1 ";
 		
 		try {
