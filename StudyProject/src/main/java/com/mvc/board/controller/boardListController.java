@@ -67,6 +67,7 @@ public class boardListController extends HttpServlet {
 			List<HashMap<String, Object>> blist = boardDAO.bd().getBoardList(bv);
 
 			// jsp로 Param전송
+			req.setAttribute("session", session);
 			req.setAttribute("blist", blist); // 글목록
 			req.setAttribute("count", count); // 글갯수
 			req.getRequestDispatcher("/WEB-INF/view/board/boardList.jsp").forward(req, resp);
