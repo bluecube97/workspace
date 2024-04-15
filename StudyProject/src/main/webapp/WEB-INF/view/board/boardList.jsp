@@ -99,9 +99,9 @@
 		<c:forEach var="bl" items="${blist}">
 			<div class="row">
 				<div class="cell">${bl.brdno}</div>
-				<div class="cell"><a href="boardetail?brdno=${bl.brdno}">${bl.brdtitle}</a></div>
+				<div class="cell"><a href="boardetail?brdno=${bl.brdno}&page=${page}&field=${field}&keyword=${keyword}">${bl.brdtitle}</a></div>
 				<div class="cell">${bl.brdmemo}</div>
-				<div class="cell">${bl.userno}</div>
+				<div class="cell">${bl.usernm}</div>
 				<div class="cell">${bl.brddate}</div>
 				<div class="cell">${bl.hit}</div>
 			</div>

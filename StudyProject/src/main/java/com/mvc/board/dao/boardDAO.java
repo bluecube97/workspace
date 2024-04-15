@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class boardDAO {
 
 		String pageSql = "LIMIT " + start_page + " , " + 10;
 
-		String sql = "SELECT tb.BRDNO as brdno, tb.BRDTITLE as brdtitle, "
+		String sql = "SELECT tb.BRDNO as brdno, tb.BRDTITLE as brdtitle, tb.BRDMEMO as brdmemo, "
 				+ " tb.USERNO as userno, cu.USERNM as usernm, tb.BRDDATE as brddate, tb.HIT as hit "
 				+ "   FROM TBL_BOARD tb " + "	 INNER JOIN COM_USER cu ON cu.USERNO = tb.USERNO "
 				+ "  WHERE tb.BRDDELETEFLAG ='N' ";
@@ -52,6 +53,7 @@ public class boardDAO {
 
 				map.put("brdno", rs.getInt("brdno"));
 				map.put("brdtitle", rs.getString("brdtitle"));
+				map.put("brdmemo", rs.getString("brdmemo"));
 				map.put("userno", rs.getInt("userno"));
 				map.put("usernm", rs.getString("usernm"));
 				map.put("brddate", rs.getDate("brddate"));
@@ -153,5 +155,45 @@ public class boardDAO {
 			JDBCUtill.close(rs);
 		}
 		return brdNo;
+	}
+
+	public HashMap<String, Object> getBoardDetail(String brdNo) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		String sql = " select tb.USERNO as userno, cu.USERNM as usernm, tb.BRDTITLE as brdtitle, tb.BRDMEMO as brdmemo, tb.BRDDATE as brddate "
+				+ " from tbl_board tb "
+				+ " inner join com_user cu on tb.USERNO = cu.USERNO "
+				+ " where tb.BRDNO = ? ";
+
+		try {
+			con = connectionProvider.getConnection();
+			psmt = con.prepareStatement(sql);
+			psmt.setInt(1, Integer.parseInt(brdNo));
+			rs = psmt.executeQuery();
+
+			if (rs.next()) {
+				int userNo = rs.getInt("userno");
+				String userNm = rs.getString("usernm");
+				String brdTitle = rs.getString("brdtitle");
+				String brdMemo = rs.getString("brdmemo");
+				Date brdDate = rs.getDate("brddate");
+				
+				map.put("userno", userNo);
+				map.put("usernm", userNm);
+				map.put("brdtitle", brdTitle);
+				map.put("brdmemo", brdMemo);
+				map.put("brddate", brdDate);
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCUtill.close(con);
+			JDBCUtill.close(psmt);
+			JDBCUtill.close(rs);
+		}
+		
+		return map;
+		
 	}
 }

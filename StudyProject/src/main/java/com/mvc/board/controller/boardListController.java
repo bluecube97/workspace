@@ -31,6 +31,10 @@ public class boardListController extends HttpServlet {
 			String page_ = req.getParameter("page");
 			String field_ = req.getParameter("field");
 			String keyword_ = req.getParameter("keyword");
+			
+			System.out.println("page : " + page_);
+			System.out.println("field : " + field_);
+		    System.out.println("keyword : " + keyword_);
 
 			// 형변환 및 Validation 추가
 			int page = 1;
@@ -67,6 +71,9 @@ public class boardListController extends HttpServlet {
 			List<HashMap<String, Object>> blist = boardDAO.bd().getBoardList(bv);
 
 			// jsp로 Param전송
+			req.setAttribute("page", page);
+			req.setAttribute("field", field);
+			req.setAttribute("keyword", keyword);
 			req.setAttribute("session", session);
 			req.setAttribute("blist", blist); // 글목록
 			req.setAttribute("count", count); // 글갯수
