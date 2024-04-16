@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: jstl-1.2.jar mysql-connector-j-8.3.0.jar servlet-api.jar jac
+ kson-core-2.14.2.jar jackson-annotations-2.14.2.jar jackson-databind-2.
+ 14.2.jar
+

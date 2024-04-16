@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.mvc.board.dao.boardDAO;
 import com.mvc.board.vo.BoardSearchVo;
+import com.reference.config.XmlConfig;
 
 @WebServlet("/board/boardList")
 public class boardListController extends HttpServlet {
@@ -83,6 +84,6 @@ public class boardListController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+		XmlConfig.UTFUCK(req, resp);
 	}
 }
