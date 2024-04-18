@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- score 객체 등록 및 인터페이스가 지정하는 실제 객체 지정 -->
-    <bean id="subjectList" class="spring_di.di.inter.SubjectList">
-        <constructor-arg index="0" value="80"/>
-        <constructor-arg index="1" value="70"/>
-        <constructor-arg index="2" value="90"/>
-        <constructor-arg index="3" value="60"/><!-- vo내에 생성자가 있어야함. -->
-        <!-- <property name=""></property> getter setter을 ㄹ사용한 방법 vo에 getset 생성해줘야함. -->
-    </bean>
+<!--    <bean id="subjectList" class="spring_di.di.inter.SubjectList">-->
+<!--        <constructor-arg index="1" value="70"/>-->
+<!--        <constructor-arg index="0" value="80"/>-->
+<!--        <constructor-arg index="2" value="90"/>-->
+<!--        <constructor-arg index="3" value="60"/>-->
+<!--        -->
+<!--        <property name="java" value="70"/>-->
+<!--        <property name="c" value="70"/>-->
+<!--        <property name="javascript" value="70"/>-->
+<!--        <property name="html" value="70"/>-->
+<!--    </bean>-->
 
-    <bean id="score" class="spring_di.di.inter.MakingScore">
-        <constructor-arg ref="subjectList"/>
-    </bean>
+<!--    <bean id="score" class="spring_di.di.inter.MakingScore">-->
+<!--        <constructor-arg ref="subjectList"/>-->
+<!--    </bean>-->
 
     <!-- score 객체 등록 및 인터페이스가 지정하는 실제 객체 지정 -->
-    <bean id="scoreConsole" class="spring_di.di.console.NomalConsole">
-        <property name="score" ref="score"/>
+<!--    <bean id="scoreConsole" class="spring_di.di.console.NomalConsole">-->
+<!--        <property name="score" ref="score"/>-->
+<!--    </bean>-->
+    <bean id="calc" class="spring_di.di.calc.Calculate">
     </bean>
+    <bean id="elementList" class="spring_di.di.calc.ElementList">
+    </bean>
+
 </beans>
