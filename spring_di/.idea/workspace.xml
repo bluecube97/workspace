@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="236b2092-487e-4d7e-96ba-86af96bcaeda" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/out/production/spring_di/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/out/production/spring_di/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/out/production/spring_di/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/out/production/spring_di/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/out/production/spring_di/spring_di.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring_di.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring_di/di/Program.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spring_di/di/Program.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring_di/di/console/NormalConsole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring_di/di/console/SpecialConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spring_di/di/console/SpecialConsole.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring_di/di/inter/MakingScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spring_di/di/inter/MakingScore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/spring_di/di/inter/SubjectList.class" beforeDir="false" afterPath="$PROJECT_DIR$/bin/spring_di/di/inter/SubjectList.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di/di/Program.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di/di/console/NormalConsole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di/di/console/ScoreConsole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di/di/console/SpecialConsole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di/di/inter/MakingScore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di/di/inter/Score.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/spring_di/spring_di/di/inter/SubjectList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_di.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_di/di/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_di/di/Program.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_di/di/console/NormalConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_di/di/console/SpecialConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_di/di/console/SpecialConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_di/di/inter/MakingScore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_di/di/inter/MakingScore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_di/di/inter/Score.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_di/di/inter/Score.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_di/di/inter/SubjectList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_di/di/inter/SubjectList.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2fGAUkmCI3KnhdGsEnD1rsTy1hi" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Program.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "configurable.group.appearance",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="236b2092-487e-4d7e-96ba-86af96bcaeda" name="Changes" comment="" />
+      <created>1713417059709</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713417059709</updated>
+      <workItem from="1713417061791" duration="196000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
