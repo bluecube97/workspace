@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/Day1/main.js" async></script>
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
+</head>
+<body>
+<div class="form-calculate">
+    <h2>Calculate</h2>
+    <div id="form_input">
+        <input type="button" id="num1" value="1" onclick="save(1)">
+        <input type="button" id="num2" value="2" onclick="save(2)">
+        <input type="button" id="num3" value="3" onclick="save(3)">
+        <input type="button" id="num4" value="4" onclick="save(4)">
+        <input type="button" id="num5" value="5" onclick="save(5)">
+        <input type="button" id="num6" value="6" onclick="save(6)">
+        <input type="button" id="num7" value="7" onclick="save(7)">
+        <input type="button" id="num8" value="8" onclick="save(8)">
+        <input type="button" id="num9" value="9" onclick="save(9)">
+        <input type="button" id="num0" value="0" onclick="save(0)">
+        <input type="button" id="plus" value="+" onclick="saveOp('+')">
+        <input type="button" id="minus" value="-" onclick="saveOp('-')">
+        <input type="button" id="multiple" value="*" onclick="saveOp('*')">
+        <input type="button" id="divide" value="/" onclick="saveOp('/')">
+        <input type="button" id="equls" value="=" onclick="calculate()">
+        <div id="console" id="resultconsole"></div>
+    </div>
+</div>
+</body>
+</html>
