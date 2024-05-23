@@ -1,0 +1,17 @@
+.tag {
+    display: inline-block;
+    background-color: blanchedalmond;
+    font-size: 48px;
+}
+
+.tag2 {
+    display: inline-block;
+    background-color: red;
+    font-size: 48px;
+}
+
+#tag1 {
+    display: inline-block;
+    background-color: red;
+    font-size: 48px;
+}
