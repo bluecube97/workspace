@@ -1,0 +1,64 @@
+html {
+    background: black;
+}
+
+.컨테이너 {
+    background: ivory;
+    display: inline-block;
+}
+
+.item{
+
+}
+
+.item1{
+    background: crimson;
+}
+
+.item2{
+    background: darkorange;
+}
+
+.item3{
+    background:
+}
+
+.item4{
+    background:
+}
+
+.item5{
+    background:
+}
+
+.item6{
+    background:
+}
+
+.item7{
+    background:
+}
+
+.item8{
+    background:
+}
+
+.item9{
+    background:
+}
+
+.item10{
+    background:
+}
+
+div {
+    width: 80px;
+    height: 80px;
+    margin: 20px;
+    background: pink;
+    opacity: 0.5;
+}
+
+div:hover {
+    background: red;
+}
