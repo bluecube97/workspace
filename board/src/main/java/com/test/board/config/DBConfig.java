@@ -18,29 +18,30 @@ import com.zaxxer.hikari.HikariDataSource;
 @Configuration
 @PropertySource("classpath:/application.properties")
 public class DBConfig {
+
 	@Autowired
-	private ApplicationContext context;
-	
+	private ApplicationContext context ;
+
 	@Bean
 	@ConfigurationProperties(prefix = "spring.datasource.hikari")
 	public HikariConfig hikariConfig() {
 		return new HikariConfig();
-    }
-	
+	}
+
 	@Bean
 	public DataSource dataSource() {
 		return new HikariDataSource(hikariConfig());
 	}
-	
+
+	@Bean
 	public SqlSessionFactory session() throws Exception {
 		SqlSessionFactoryBean fb = new SqlSessionFactoryBean();
 		fb.setDataSource(dataSource());
 		return fb.getObject();
 	}
-	
+
 	@Bean
 	public SqlSessionTemplate sqlSession() throws Exception {
 		return new SqlSessionTemplate(session());
 	}
-	
 }

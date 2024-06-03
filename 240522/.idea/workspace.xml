@@ -5,17 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3183980b-47b8-4fae-b43f-f78d493c1837" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../JavaScript/Day4/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaScript/Day4/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaScript/Day4/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaScript/Day5/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaScript/Day5/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JavaScript/Day5/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../board/src/main/webapp/WEB-INF/resource/css/login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../board/src/main/webapp/WEB-INF/resource/js/login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../boardij/src/main/java/com/test/boardij/config/DBConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JavaScript/Day3/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../JavaScript/Day3/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../board/src/main/java/com/test/board/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../board/src/main/java/com/test/board/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../board/src/main/java/com/test/board/dao/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../board/src/main/java/com/test/board/mapper/user.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../board/src/main/java/com/test/board/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../board/src/main/java/com/test/board/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../board/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board/src/main/java/com/test/board/config/DBConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../board/src/main/java/com/test/board/config/DBConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../board/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../board/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../board/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       <workItem from="1717037975226" duration="42000" />
       <workItem from="1717038066385" duration="9058000" />
       <workItem from="1717377065941" duration="7266000" />
-      <workItem from="1717398732061" duration="739000" />
+      <workItem from="1717398732061" duration="1340000" />
     </task>
     <servers />
   </component>
