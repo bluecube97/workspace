@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.test.board.mapper.UserMapper">
+	<select id="loginCheck" parameterType="map" resultType="map">
+	 select cu.USERID , cu.USERPW, cu.USERNM 
+       from COM_USER cu 
+      WHERE cu.USERID = #{pid}
+        and cu.USERPW = SHA2(#{ppass} ,256)
+	</select>
+</mapper>
+

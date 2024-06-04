@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.test.board.mapper.BoardMapper">
+	<select id="getBoardList" resultType="map">
+	 SELECT tb.BRDNO as brdno, tb.BRDTITLE as brdtitle, tb.USERNO as userno, cu.USERNM as usernm, tb.BRDDATE as brddate 
+       FROM TBL_BOARD tb 
+      INNER JOIN COM_USER cu ON cu.USERNO = tb.USERNO 
+      WHERE tb.BRDDELETEFLAG ='N'
+	</select>
+</mapper>
+

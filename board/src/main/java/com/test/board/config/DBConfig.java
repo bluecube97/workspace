@@ -5,6 +5,7 @@ import javax.sql.DataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.SqlSessionTemplate;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.ApplicationContext;
@@ -17,31 +18,34 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @PropertySource("classpath:/application.properties")
+@MapperScan(basePackages = "com.test.board.mapper")
 public class DBConfig {
 
-	@Autowired
-	private ApplicationContext context ;
+    @Autowired
+    private ApplicationContext context ;
 
-	@Bean
-	@ConfigurationProperties(prefix = "spring.datasource.hikari")
-	public HikariConfig hikariConfig() {
-		return new HikariConfig();
-	}
+    @Bean
+    @ConfigurationProperties(prefix = "spring.datasource.hikari")
+    public HikariConfig hikariConfig() {
+        return new HikariConfig();
+    }
 
-	@Bean
-	public DataSource dataSource() {
-		return new HikariDataSource(hikariConfig());
-	}
+    @Bean
+    public DataSource dataSource() {
+        return new HikariDataSource(hikariConfig());
+    }
 
-	@Bean
-	public SqlSessionFactory session() throws Exception {
-		SqlSessionFactoryBean fb = new SqlSessionFactoryBean();
-		fb.setDataSource(dataSource());
-		return fb.getObject();
-	}
+    @Bean
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
+        SqlSessionFactoryBean SqlSessionFactoryBean = new SqlSessionFactoryBean();
+        SqlSessionFactoryBean.setDataSource(dataSource());
+        SqlSessionFactoryBean.setMapperLocations(context.getResources("classpath:/mappers/*.xml"));
+        SqlSessionFactoryBean.setDataSource(dataSource());
+        return SqlSessionFactoryBean.getObject();
+    }
 
-	@Bean
-	public SqlSessionTemplate sqlSession() throws Exception {
-		return new SqlSessionTemplate(session());
-	}
+    @Bean
+    public SqlSessionTemplate sqlSessionTemplate() throws Exception {
+        return new SqlSessionTemplate(sqlSessionFactory());
+    }
 }

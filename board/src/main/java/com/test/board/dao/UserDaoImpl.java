@@ -1,20 +1,20 @@
 package com.test.board.dao;
 
-import org.apache.ibatis.session.SqlSession;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.Map;
+import com.test.board.mapper.UserMapper;
 
 @Repository
-public class UserDaoImpl implements UserDao{
-    @Autowired
-    private SqlSession session;
+public class UserDaoImpl implements UserDao {
 
-    private static final String ns = "com.test.board.mapper.userMapper"; // namespace
-
-    @Override
-    public Map<String, String> loginCheck(Map<String, String> userInfo) {
-        return session.selectOne(ns + ".login", userInfo);
-    }
+	@Autowired
+	private UserMapper userMapper;
+	
+	@Override
+	public Map<String, String> loginCheck(Map<String, String> userInfo) {
+		return userMapper.loginCheck(userInfo);
+	}
 }

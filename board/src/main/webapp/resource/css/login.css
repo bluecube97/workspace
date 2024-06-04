@@ -1,6 +1,6 @@
 .container{
     width: 400px;
-    height: 400px;
+    height:400px;
 }
 
 .btn{
@@ -16,13 +16,12 @@
     display: none;
     align-items: center;
     justify-content: center;
-    background: hotpink;
+    background: pink;
 }
 
 .modalContent{
     background: ivory;
 }
-
 .modalClose{
     cursor: pointer;
 }
