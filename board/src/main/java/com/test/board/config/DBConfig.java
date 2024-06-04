@@ -22,7 +22,7 @@ import com.zaxxer.hikari.HikariDataSource;
 public class DBConfig {
 
     @Autowired
-    private ApplicationContext context ;
+    private ApplicationContext context;
 
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource.hikari")

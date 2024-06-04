@@ -1,8 +1,5 @@
 package com.test.board.service;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,6 +19,12 @@ public class BoardServiceImpl implements BoardService {
 		List<Map<String, String>> blist = boardDao.getBoardList();
 		System.out.println(blist);
 		return blist;
+	}
+
+	@Override
+	public Map<String, Object> getBoardDetail(int boardNo) {
+		Map<String, Object> detail = boardDao.getBoardDetail(boardNo);
+		return detail;
 	}
 
 }

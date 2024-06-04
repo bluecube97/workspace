@@ -19,4 +19,9 @@ public class BoardDaoImpl implements BoardDao {
 		return boardMapper.getBoardList();
 	}
 
+	@Override
+	public Map<String, Object> getBoardDetail(int boardNo) {
+		return boardMapper.getBoardDetail(boardNo);
+	}
+
 }

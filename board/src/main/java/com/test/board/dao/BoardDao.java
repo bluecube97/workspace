@@ -5,4 +5,5 @@ import java.util.Map;
 
 public interface BoardDao {
 	public List<Map<String, String>> getBoardList();
+	public Map<String, Object> getBoardDetail(int boardNo);
 }

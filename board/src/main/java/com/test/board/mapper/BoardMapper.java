@@ -8,4 +8,5 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface BoardMapper {
 	List<Map<String, String>> getBoardList();
+	Map<String, Object> getBoardDetail(int boardNo);
 }

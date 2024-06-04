@@ -27,7 +27,7 @@
     	<c:forEach var="bv" items="${blist}">
         <tr>
             <td style="padding: 1em;">${bv.brdno}</td>
-            <td style="padding: 1em;">${bv.brdtitle}</td>
+			<td style="padding: 1em;"><a href="${pageContext.request.contextPath}/boardDetail?brdno=${bv.brdno}">${bv.brdtitle}</a></td>
             <td style="padding: 1em;">${bv.usernm}</td>
             <td style="padding: 1em;">${bv.brddate}</td>
         </tr>

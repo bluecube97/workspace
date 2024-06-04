@@ -1,4 +1,4 @@
-function idcheck() {
+function login() {
 	let userId = document.querySelector('#uid').value;
 	let userPass = document.querySelector('#upass').value;
 	const modalBody = document.querySelector('#modalBody');
