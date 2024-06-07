@@ -3,5 +3,5 @@ package com.test.board.mapper;
 import java.util.Map;
 
 public interface UserMapper {
-	Map<String, String> loginCheck(Map<String, String> userInfo);
+	Map<String, Object> loginCheck(Map<String, Object> params);
 }

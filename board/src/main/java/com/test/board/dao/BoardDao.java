@@ -4,6 +4,12 @@ import java.util.List;
 import java.util.Map;
 
 public interface BoardDao {
-	public List<Map<String, String>> getBoardList();
-	public Map<String, Object> getBoardDetail(int boardNo);
+
+    List<Map<String, Object>> searchBoard(Map<String, Object> params);
+
+    int countBoard(Map<String, Object> params);
+
+    Map<String, Object> detailView(int param);
+
+    void registContent(Map<String, Object> param);
 }

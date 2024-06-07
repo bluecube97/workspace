@@ -1,24 +1,19 @@
 package com.test.board.service;
 
-import java.util.Map;
-
+import com.test.board.dao.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.test.board.dao.UserDao;
+import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private UserDao userdao;
-	
+	private UserDao userDao;
+
 	@Override
-	public boolean loginCheck(Map<String, String> userInfo) {
-		boolean result = false;
-		if(userdao.loginCheck(userInfo) != null) {
-			result = true;
-		}
-		return result;
+	public Map<String, Object> loginCheck(Map<String, Object> params) {
+		return userDao.loginCheck(params);
 	}
 }

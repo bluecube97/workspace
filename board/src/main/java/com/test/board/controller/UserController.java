@@ -1,47 +1,57 @@
 package com.test.board.controller;
 
+import com.test.board.model.UserSession;
+import com.test.board.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
+
 import java.util.HashMap;
 import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import javax.servlet.http.HttpSession;
 
-import com.test.board.service.UserService;
-
-@RequestMapping("/")
 @Controller
-public class userController {
+@SessionAttributes("userSession")
+@RequestMapping("/user")
+public class UserController {
 
-	@Autowired
-	private UserService usersvc;
-	
-	@GetMapping("/login")
-	private String loginView() {
-		return "login";
-	}
-	
-	@PostMapping("/login")
-	@ResponseBody
-	private Map<String, String> loginCheck(@RequestParam String pid, @RequestParam String ppass){
-		Map<String, String> userInfo = new HashMap<String, String>();
-		System.out.println(pid + ppass);
-		userInfo.put("pid", pid);
-		userInfo.put("ppass", ppass);
-		
-		boolean result = usersvc.loginCheck(userInfo);
-		System.out.println("result" + result);
-		Map<String, String> responses = new HashMap<>();
-		
-		if (result) {
-			responses.put("message", "로그인 성공인데스");
-		}else {
-			responses.put("message", "로그인 실패인데스");
-		}
-		return responses;
-	}
+    @Autowired
+    private UserService userService;
+
+    @ModelAttribute("userSession")
+    public UserSession createSession() {
+        return new UserSession();
+    }
+
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login"; // login.jsp
+    }
+
+    @PostMapping("/login")
+    @ResponseBody
+    public Map<String, Object> handleLogin(@RequestBody Map<String, Object> params, @ModelAttribute("userSession") UserSession us) {
+        Map<String, Object> response = new HashMap<>();
+        Map<String, Object> result = userService.loginCheck(params);
+
+        if (result != null) {
+            us.setUserId((String) result.get("USERID"));
+            us.setUserNm((String) result.get("USERNM"));
+            us.setRole((String) result.get("USERROLE"));
+            us.setDeptNo(String.valueOf(result.get("DEPTNO")));
+            response.put("redirect", "/board/list");
+        } else {
+            response.put("message", "ID, PASSWORD 를 확인하세요");
+        }
+        return response;
+    }
+
+    @GetMapping("/logout")
+    public String logOut(HttpSession session, SessionStatus status) {
+        status.setComplete();
+        session.invalidate();
+        return "redirect:/board/list";
+    }
 }

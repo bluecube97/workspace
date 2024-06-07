@@ -1,25 +1,25 @@
-function login() {
-	let userId = document.querySelector('#uid').value;
-	let userPass = document.querySelector('#upass').value;
-	const modalBody = document.querySelector('#modalBody');
+function idcheck() {
+	const uid = document.getElementById('uid').value;
+	const upass = document.getElementById('upass').value;
 
-	console.log('1111111111111111');
-	console.log(userId)
-	console.log(userPass)
-	fetch('/login', {
+	const data = {
+		pid: uid,
+		ppass: upass
+	};
+
+	fetch('/user/login', {
 		method: 'POST',
 		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded',
+			'Content-Type': 'application/json'
 		},
-		body: new URLSearchParams({ pid: userId, ppass: userPass })
+		body: JSON.stringify(data)
 	})
-		.then(responses => responses.json())
+		.then(response => response.json())
 		.then(data => {
-			modalBody.textContent = data.message;
-			$('#idCheckModal').modal('show');
+			if (data.redirect != null){
+				window.location.href = data.redirect;
+			} else {
+				alert(data.message);
+			}
 		});
-}
-
-function closeModal() {
-	$('#idCheckModal').modal('hide');
 }

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+td:nth-child(3) {
+	min-width: 100px; /* 글쓴이 칸 길이 설정 */
+}
+
+.search-container {
+	display: flex;
+	align-items: center;
+}
+
+.search-container input[type="text"] {
+	flex-grow: 1;
+	max-width: 80%px; /* 검색창 길이 설정 */
+	margin-right: 10px;
+}
+
+.ul-tag{
+	justify-content: center;
+	align-items: center;
+	padding: 5%;
+}
+
+.pagination{
+	justify-content: center;
+}

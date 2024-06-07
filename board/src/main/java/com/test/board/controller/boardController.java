@@ -1,41 +1,91 @@
 package com.test.board.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
+import com.test.board.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import com.test.board.service.BoardService;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.multipart.MultipartFile;
 
-@RequestMapping("/")
+@RequestMapping("/board")
 @Controller
-public class boardController {
+public class BoardController {
 
-	@Autowired
-	private BoardService boardsvc;
-	
-    @GetMapping("/boardList")
-    public ModelAndView boardListView(ModelAndView model) {
-        List<Map<String, String>> blist = boardsvc.getBoardList();
-        System.out.println(blist);
-        model.addObject("blist", blist);
-        model.setViewName("boardList");
-        return model;
+    @Autowired
+    private BoardService boardService;
+
+    @GetMapping("/list")
+    public String getBoardList(@RequestParam(value = "keyword", required = false) String keyword,
+                               @RequestParam(value = "page", required = false, defaultValue = "1") int page,
+                               @RequestParam(value = "size", required = false, defaultValue = "10") int size,
+                               @RequestParam(value = "bgno", required = false, defaultValue = "5") int bgno, Model model) {
+        {
+            // 조회 시 페이징 값 셋팅
+            Map<String, Object> params = new HashMap<>();
+            params.put("sw", keyword);
+            int offset = (page - 1) * size;
+            params.put("offset", offset);
+            params.put("limit", size);
+            params.put("bgno", bgno);
+
+            List<Map<String, Object>> boardList = boardService.searchBoard(params);
+            int totalRecords = boardService.countBoard(params);
+            int totalPages = (int) Math.ceil((double) totalRecords / size);
+
+            // 페이징 계산
+            int startPage = ((page - 1) / 10) * 10 + 1;
+            int endPage = Math.min(startPage + 9, totalPages);
+            boolean hasPrev = startPage > 1;
+            boolean hasNext = endPage < totalPages;
+
+            model.addAttribute("boardList", boardList);
+            model.addAttribute("keyword", keyword);
+            model.addAttribute("currentPage", page);
+            model.addAttribute("totalPages", totalPages);
+            model.addAttribute("startPage", startPage);
+            model.addAttribute("endPage", endPage);
+            model.addAttribute("size", size);
+            model.addAttribute("hasPrev", hasPrev);
+            model.addAttribute("hasNext", hasNext);
+            model.addAttribute("bgno", bgno);
+
+            return "boardlist";
+        }
     }
 
-    @GetMapping("/boardDetail")
-    public ModelAndView boardDetailView(ModelAndView model, @RequestParam("brdno") int boardNo) {
-        Map<String, Object> detail = boardsvc.getBoardDetail(boardNo);
-        model.addObject("detail", detail);
-        model.setViewName("boardDetail");
-        return model;
+    @GetMapping("detail/{id}")
+    public String detailView(@PathVariable("id") int id, Model model) {
+        Map<String, Object> dv = boardService.detailView(id);
+        model.addAttribute("post", dv);
+
+        System.out.println("id : " + id);
+        return "boardDetail";
     }
-	
+
+    @GetMapping("/write")
+    public String registContent() {
+        return "boardWrite";
+    }
+
+    public String registContent(@RequestParam("brdtitle") String brdtitle,
+                                @RequestParam("brdmemo") String memo,
+                                @RequestParam("file") List<MultipartFile> file,
+                                @ModelAttribute("userSession") UserSession us,
+                                Model model) {
+        Map<String, Object> param = new HashMap<>();
+        param.put("brdtitle", brdtitle);
+        param.put("brdmemo", memo);
+        param.put("userid", us.getUserId());
+        param.put("file", file);
+
+        boardService.registContent(param);
+
+        return "redirect:/board/list";
+    }
 }

@@ -3,5 +3,5 @@ package com.test.board.service;
 import java.util.Map;
 
 public interface UserService {
-	boolean loginCheck(Map<String, String> userInfo);
+	Map<String, Object> loginCheck(Map<String, Object> params);
 }

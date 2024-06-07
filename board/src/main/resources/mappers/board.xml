@@ -1,21 +1,51 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
-
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.test.board.mapper.BoardMapper">
-	<select id="getBoardList" resultType="map">
-	 SELECT tb.BRDNO as brdno, tb.BRDTITLE as brdtitle, tb.USERNO as userno, cu.USERNM as usernm, tb.BRDDATE as brddate 
-       FROM TBL_BOARD tb 
-      INNER JOIN COM_USER cu ON cu.USERNO = tb.USERNO 
-      WHERE tb.BRDDELETEFLAG ='N'
-	</select>
-    <select id="getBoardDetail" parameterType="int" resultType="map">
-        SELECT tb.BRDNO as brdno, cu.USERNM as usernm, tb.BRDTITLE as brdtitle, tb.BRDMEMO as brdmemo
+    <select id="searchBoard" resultType="map" parameterType="map">
+        SELECT tb.BRDNO as BRDNO,
+        tb.BRDTITLE as BRDTITLE,
+        cu.USERNO as USERNO,
+        cu.USERNM as USERNM,
+        tb.BRDMEMO as BRDMEMO,
+        tb.BRDDATE as BRDDATE,
+        tb.HIT as HIT
         FROM TBL_BOARD tb
-        inner join COM_USER cu on cu.USERNO = tb.USERNO
-        WHERE tb.BRDNO = #{brdno}
+        INNER JOIN COM_USER cu ON tb.USERNO = cu.USERNO
+        <where>
+            AND tb.BGNO =#{bgno}
+            AND tb.BRDDELETEFLAG = 'N'
+            <if test="keyword != null and !sw.isEmpty()">
+                AND (MATCH(tb.BRDTITLE) AGAINST (#{keyword} IN NATURAL LANGUAGE MODE)
+                OR MATCH(cu.USERNM) AGAINST (#{keyword} IN NATURAL LANGUAGE MODE))
+            </if>
+        </where>
+        ORDER BY tb.BRDDATE DESC
+        LIMIT #{offset}, #{limit}
     </select>
-</mapper>
 
+    <select id="countBoard" resultType="int" parameterType="map">
+        SELECT COUNT(*)
+        FROM TBL_BOARD tb
+        INNER JOIN COM_USER cu ON tb.USERNO = cu.USERNO
+        <where>
+            AND tb.BGNO =#{bgno}
+            <if test="sw != null and !sw.isEmpty()">
+                AND (MATCH(tb.BRDTITLE) AGAINST (#{sw} IN NATURAL LANGUAGE MODE)
+                OR MATCH(cu.USERNM) AGAINST (#{sw} IN NATURAL LANGUAGE MODE))
+            </if>
+        </where>
+    </select>
+
+    <select id="detailView" resultType="Map" parameterType="int">
+        SELECT tb.BRDNO, tb.BRDTITLE, cu.USERID, cu.USERNM, tb.BRDMEMO, tb.BRDDATE, tb.HIT
+        FROM TBL_BOARD tb
+        INNER JOIN COM_USER cu ON tb.USERNO = cu.USERNO
+        <where>
+            AND tb.BRDNO = #{brdno}
+            AND tb.BRDDELETEFLAG = 'N'
+        </where>
+    </select>
+
+</mapper>
