@@ -1,11 +1,16 @@
 package com.test.board.controller;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.test.board.model.UserSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +24,25 @@ public class BoardController {
 
     @Autowired
     private BoardService boardService;
+
+    @GetMapping("/unity")
+    public String unity() {
+        System.out.println("11111");
+        return "game";
+    }
+
+    @GetMapping("/resource/Build/UnityPakage.framework.js.gz")
+    @ResponseBody
+    public ResponseEntity<ClassPathResource> getCompressedFile() throws IOException {
+        System.out.println("22222");
+        ClassPathResource gzFile = new ClassPathResource("Build/UnityPakage.framework.js.gz");
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Encoding", "gzip");
+        headers.add("Content-Type", "application/javascript");
+        headers.add("Cache-Control", "max-age=31536000, public");
+
+        return new ResponseEntity<>(gzFile, headers, HttpStatus.OK);
+    }
 
     @GetMapping("/list")
     public String getBoardList(@RequestParam(value = "keyword", required = false) String keyword,

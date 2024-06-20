@@ -125,6 +125,9 @@
                         <a href="/board/write" class="btn btn-success">글쓰기</a>
                     </c:if>
                 </div>
+                <div class="mt-3 mb-3">
+                    <a href="/board/unity" class="btn btn-success">게임 실행</a>
+                </div>
             </div>
         </nav>
     </div>
