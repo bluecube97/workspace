@@ -181,8 +181,9 @@ class Daughter:
 #d = Daughter() 
 
 def load_daughter_status():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    communication_path = os.path.join(base_dir, "conversationData", "daughter_status.json")
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    relative_path = os.path.join(current_dir, '..', '..', 'json', 'game', 'daughter_status.json')
+    communication_path = relative_path
     try:
         if communication_path is not os.path.exists :
             with open(communication_path, 'r', encoding='utf-8') as f:

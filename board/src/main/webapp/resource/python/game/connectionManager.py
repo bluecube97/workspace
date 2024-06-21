@@ -14,7 +14,9 @@ openai.api_key = api_key
 #딸과의 대화 json 파일에 저장
 def read_comm_file(question, response):
     commu = {"user_ment": question, "gpt_ment": response}
-    conversation_path = os.path.join("conversationData", "conversation.json")
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    relative_path = os.path.join(current_dir, '..', '..', 'json', 'game', 'conversation.json')
+    conversation_path = relative_path
 
     if not os.path.exists(os.path.dirname(conversation_path)):
         os.makedirs(os.path.dirname(conversation_path))
@@ -88,8 +90,9 @@ def extract_and_save_updated_status(daughter_reply, d):
             }
         }
         
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        update_path = os.path.join(base_dir, "conversationData", "statusRecord.json")
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        relative_path = os.path.join(current_dir, '..', '..', 'json', 'game', 'statusRecord.json')
+        update_path = relative_path
 
         with open(update_path, 'w', encoding='utf-8') as f:
             json.dump(present_status, f, indent=4, ensure_ascii=False)
@@ -97,8 +100,9 @@ def extract_and_save_updated_status(daughter_reply, d):
 # 부모 정보 받아오기.
 def get_parent_status():
     try :
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        parent_status_path = os.path.join(base_dir, "conversationData", "parent_status.json")
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        relative_path = os.path.join(current_dir, '..', '..', 'json', 'game', 'parent_status.json')
+        parent_status_path = relative_path
 
         if os.path.exists(parent_status_path) :
             with open(parent_status_path, 'r', encoding='utf-8') as f :
@@ -233,7 +237,7 @@ def ConnectionGpt(d_stat, set_d):
             daughter_reply = response['choices'][0]['message']['content']
             messages.append({"role": "assistant", "content": f"{daughter_reply}"})
 
-            #----  실질적인 output 유니티로 전달 ----
+            #----  실질적인 output 출력, 이후 출력값을 자바에서 읽음 ----
             ment_ = get_origin_ment(daughter_reply)
             if ment_ is not None:
                 extract_and_save_updated_status(daughter_reply, set_d)
@@ -252,6 +256,8 @@ def ConnectionGpt(d_stat, set_d):
 def main():
     d_stat = lds()
     set_d = d()
+
+    print("test")
 
     ConnectionGpt(d_stat, set_d)
 

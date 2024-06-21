@@ -1,29 +1,22 @@
 package com.test.board.unity.controller;
 
+import com.test.board.unity.service.ConvService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletContext;
+import java.util.Map;
 
 @RequestMapping("/api/conv")
 @RestController
 public class ConvController {
 
     @Autowired
-    private ServletContext servletContext;
+    private ConvService convService;
 
-    @GetMapping("/pythonPath")
-    public String getPythonPath() {
-        String path = servletContext.getRealPath("/resource/python/game/connectionManager.py");
-        System.out.println(path);
-        return path;
-    }
-
-    @GetMapping("/pythonWorkSpace")
-    public String getPythonWorkSpace(){
-        System.out.println(servletContext.getRealPath(""));
-        return servletContext.getRealPath("");
+    @PostMapping("/get")
+    public Map<String, String> getConv(@RequestBody String userConv){
+        System.out.println("getConvController");
+        return convService.getConv(userConv);
     }
 }
