@@ -27,7 +27,6 @@ public class BoardController {
 
     @GetMapping("/unity")
     public String unity() {
-        System.out.println("11111");
         return "game";
     }
 

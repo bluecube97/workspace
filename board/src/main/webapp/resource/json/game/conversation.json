@@ -930,5 +930,269 @@
     {
         "user_ment": "dd",
         "gpt_ment": "안녕하세요, 아빠! 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 어머니. 오늘은 어떻게 지내셨나요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 무슨 일 있으셨나요? 제가 도와드릴 일이 있나요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 다른 얘기를 해주실래요? 오늘 무슨 이야기를 나눌까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 오늘은 제가 어떤 이야기를 해드릴까요? 함께 무엇을 이야기해 볼까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 다른 주제로 대화를 나누어볼까요? 무엇에 관심이 있으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 다른 주제로 이야기를 나누어볼까요? 함께 즐거운 대화를 나누어 보는 건 어떨까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 다른 이야기를 해보시겠어요? 함께 즐거운 시간을 보내는 게 좋겠죠."
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 다른 주제로 대화를 나누어보는 게 좋겠죠? 함께 즐거운 이야기를 나누어 보는 건 어떨까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 다른 주제로 대화를 나누어보는 게 좋겠죠? 함께 즐거운 이야기를 나누어 보는 건 어떨까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "어머니, 다른 주제로 대화를 나누어보는 게 좋겠죠? 함께 즐거운 이야기를 나누어 보는 건 어떨까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 아빠. 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "아빠, 무슨 일 있으신가요? 어떻게 도와드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 아빠. 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "아빠, 무슨 일 있으신가요? 얘기해 주세요."
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "아빠, 다른 이야기를 해보세요. 무슨 일이 있나요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 엄마! 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "아빠, 다른 주제로 얘기해주세요. 무슨 생각을 하고 계신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 지금은 어떤 이야기를 하고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "아빠, 다른 이야기를 해주세요. 무슨 일이 있나요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 오늘 무슨 일 있었어요? 이야기 해 주세요."
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 엄마! 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 무슨 일 있으신가요? 어떻게 도와드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 이야기하실 내용이 있나요? 궁금해요."
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 이야기를 해볼까요? 무슨 일이 있나요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화해요. 무슨 생각을 하고 계신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화해보세요. 무슨 이야기를 해드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해요. 무슨 일이 있나요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화해요. 무슨 생각을 하고 계신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화해보세요. 무슨 이야기를 해드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해요. 무슨 일이 있나요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화해요. 무슨 생각을 하고 계신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 엄마! 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 무슨 일 있으신가요? 어떻게 도와드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 이야기를 하실까요? 무슨 일 있으신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 이야기를 바꿔볼까요? 다른 주제로 대화해도 좋을 것 같아요."
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해도 괜찮아요. 무슨 이야기를 나누고 싶으신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 이야기로 전환해볼까요? 무슨 주제로 대화를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화를 나누어도 되나요? 무슨 이야기를 해드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해보는 건 어떨까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화를 나누어도 괜찮을까요? 무슨 이야기를 해드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해보는 게 어떨까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화를 나누어도 좋을까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해보는 게 어떨까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해도 될까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화를 나누어도 좋을까요? 무슨 이야기를 해드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해보는 게 어떨까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해도 괜찮을까요? 무슨 이야기를 해드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해보는 게 어떨까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 대화를 나누어도 좋을까요? 무슨 이야기를 해드릴까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "엄마, 다른 주제로 이야기해보는 게 어떨까요? 무슨 이야기를 나누고 싶으세요?"
+    },
+    {
+        "user_ment": "C:\\DevTool\\workspace\\board\\src\\main\\webapp\\resource\\python\\game\\connectionManager.py",
+        "gpt_ment": "엄마, 그게 무슨 말씀이에요? 어떤 게임을 하고 계신 건가요?"
+    },
+    {
+        "user_ment": "C:\\DevTool\\workspace\\board\\src\\main\\webapp\\resource\\python\\game\\connectionManager.py",
+        "gpt_ment": "엄마, 그 파일은 무슨 일을 하는 거에요? 왜 거기에 있는 걸 말씀하시는 거죠?"
+    },
+    {
+        "user_ment": "C:\\DevTool\\workspace\\board\\src\\main\\webapp\\resource\\python\\game\\connectionManager.py",
+        "gpt_ment": "엄마, 그 파일이 왜 중요한 거에요? 다른 얘기를 해주실래요?"
+    },
+    {
+        "user_ment": "C:\\DevTool\\workspace\\board\\src\\main\\webapp\\resource\\python\\game\\connectionManager.py",
+        "gpt_ment": "엄마, 그 파일은 게임과는 무관한데요. 다른 이야기를 해주세요."
+    },
+    {
+        "user_ment": "C:\\DevTool\\workspace\\board\\src\\main\\webapp\\resource\\python\\game\\connectionManager.py",
+        "gpt_ment": "엄마, 그 파일은 무슨 내용인지 궁금하네요. 다른 얘기를 해주세요."
+    },
+    {
+        "user_ment": "C:\\DevTool\\workspace\\board\\src\\main\\webapp\\resource\\python\\game\\connectionManager.py",
+        "gpt_ment": "엄마, 그 파일이 왜 중요한지 알려주세요. 다른 주제로 얘기해도 될까요?"
+    },
+    {
+        "user_ment": "C:\\DevTool\\workspace\\board\\src\\main\\webapp\\resource\\python\\game\\connectionManager.py",
+        "gpt_ment": "엄마, 그 파일이 왜 중요한지 알려주실 수 있을까요? 다른 주제로 얘기해도 될까요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 엄마! 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 아빠. 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 아빠. 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 아빠. 무슨 일 있으신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 아빠. 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "아빠, 무슨 일 있으신가요? 어떻게 도와드릴까요?"
+    },
+    {
+        "user_ment": "ff",
+        "gpt_ment": "엄마, 왜 그러세요? 무슨 일 있으신가요?"
+    },
+    {
+        "user_ment": "dd",
+        "gpt_ment": "안녕하세요, 엄마! 어떻게 지내세요?"
+    },
+    {
+        "user_ment": "ddf",
+        "gpt_ment": "안녕하세요, 엄마. 왜 그러세요? 어떤 문제가 있나요?"
     }
 ]

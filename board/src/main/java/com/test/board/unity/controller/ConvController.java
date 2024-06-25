@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletContext;
+import java.io.IOException;
 import java.util.Map;
 
 @RequestMapping("/api/conv")
@@ -15,8 +16,7 @@ public class ConvController {
     private ConvService convService;
 
     @PostMapping("/get")
-    public Map<String, String> getConv(@RequestBody String userConv){
-        System.out.println("getConvController");
+    public Map<String, String> getConv(@RequestBody String userConv) {
         return convService.getConv(userConv);
     }
 }
