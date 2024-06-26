@@ -12,7 +12,7 @@ conversation_ = []
 # OpenAI API 키 설정
 api_key = ""
 openai.api_key = api_key
-user_ment = ""
+# user_ment = ""
 
 #딸과의 대화 json 파일에 저장
 def read_comm_file(question, response):
@@ -120,8 +120,8 @@ def get_parent_status():
 # java 에서 입력 프롬프트 받아오기.
 def get_ment_from_unity():
     try:
-        #sys.stdin.readline().strip() # input 말고 파이썬 모듈 sys 의 내부 함수를 사용해 표준 입력 으로 한줄만 읽음.
-        #user_ment = sys.argv[0]
+        #user_ment = sys.stdin.readline().strip() # input 말고 파이썬 모듈 sys 의 내부 함수를 사용해 표준 입력 으로 한줄만 읽음.
+        user_ment = sys.argv[1]
         if user_ment == "END_OF_INPUT":
             return None
         if user_ment:
@@ -172,8 +172,8 @@ def ConnectionGpt(d_stat, set_d):
             "1. You are role-playing a conversation with your parent."
             "	1-1)If User's sex is male Gpt you call user by dad"
             "	1-2)Else if User's sex is female Gpt you call user by mom"
-            "Your parent, in other words user's name is %s." % username +
-            "Your parent, in other words user's sex is %s." % usersex +
+            "Your parent, in other words user's name is {}.".format(username) +
+            "Your parent, in other words user's sex is {}.".format(usersex) +
             "2. Be sure to answer according to the rules below."
             "3. You must always have to answer in Korean and you have to answer everything I say."
             "4. The daughter's answer is unconditionally 'GPT (Daughter): ' Please tell me through the form."
@@ -189,23 +189,23 @@ def ConnectionGpt(d_stat, set_d):
             "	8-1)If you get angry, swear, or verbally abuse someone, your stress and fatigue will increase."
             "	8-2)If you give compliments, nice words, and gifts, stress and fatigue will decrease."
             "	8-3)Please refer to the initial value from the next line" +
-            "Your name is %s," % d_stat.name +
-            "Your age is %s," % d_stat.age +
-            "Your sex is %s," % d_stat.sex +
-            "Your MBIT is %s," % d_stat.mbti +
-            "Your HP is %s," % d_stat.hp +
-            "Your MP is %s," % d_stat.mp +
-            "Your Mood is %s," % d_stat.mood +
-            "Your Stress is %s," % d_stat.stress +
-            "Your Fatigue is %s," % d_stat.fatigue +
-            "Your MBTI(E) is %s," % d_stat.E +
-            "Your MBTI(I) is %s," % d_stat.I +
-            "Your MBTI(S) is %s," % d_stat.S +
-            "Your MBTI(N) is %s," % d_stat.N +
-            "Your MBTI(T) is %s," % d_stat.T +
-            "Your MBTI(F) is %s," % d_stat.F +
-            "Your MBTI(J) is %s," % d_stat.J +
-            "Your MBTI(P) is %s," % d_stat.P +
+            "Your name is {},".format(d_stat.name) +
+            "Your age is {},".format(d_stat.age) +
+            "Your sex is {},".format(d_stat.sex) +
+            "Your MBIT is {},".format(d_stat.mbti) +
+            "Your HP is {},".format(d_stat.hp) +
+            "Your MP is {},".format(d_stat.mp) +
+            "Your Mood is {},".format(d_stat.mood) +
+            "Your Stress is {},".format(d_stat.stress) +
+            "Your Fatigue is {},".format(d_stat.fatigue) +
+            "Your MBTI(E) is {},".format(d_stat.E) +
+            "Your MBTI(I) is {},".format(d_stat.I) +
+            "Your MBTI(S) is {},".format(d_stat.S) +
+            "Your MBTI(N) is {},".format(d_stat.N) +
+            "Your MBTI(T) is {},".format(d_stat.T) +
+            "Your MBTI(F) is {},".format(d_stat.F) +
+            "Your MBTI(J) is {},".format(d_stat.J) +
+            "Your MBTI(P) is {},".format(d_stat.P) +
             "   8-4)When changing values, please change daughter_status_json file from the initial value."
             "	9)And depending on your daughter’s behavior, her MBTI criterion will vary."
             "	10)If the parent talks out of context or says something completely unrelated to the conversation, the daughter asks a counter question or changes the topic."
@@ -230,7 +230,7 @@ def ConnectionGpt(d_stat, set_d):
         if user_request is None or user_request.lower() == 'close' :
             break
 
-        messages.append({"role": "user", "content": f"{parent_status['parent']['name']} (parent): {user_request}"})
+        messages.append({"role": "user", "content": "{} (parent): {}".format(parent_status['parent']['name'], user_request)})
         try:
             response = openai.ChatCompletion.create(
                 model='gpt-3.5-turbo',
@@ -239,7 +239,7 @@ def ConnectionGpt(d_stat, set_d):
                 temperature=0.6
             )
             daughter_reply = response['choices'][0]['message']['content']
-            messages.append({"role": "assistant", "content": f"{daughter_reply}"})
+            messages.append({"role": "assistant", "content": "{}".format(daughter_reply)})
 
             #----  실질적인 output 출력, 이후 출력값을 자바에서 읽음 ----
             ment_ = get_origin_ment(daughter_reply)

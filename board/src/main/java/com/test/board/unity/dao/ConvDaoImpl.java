@@ -1,43 +1,31 @@
 package com.test.board.unity.dao;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
 import org.springframework.stereotype.Repository;
 
-import java.io.FileReader;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.io.StringWriter;
-import java.lang.reflect.Type;
+import java.io.InputStreamReader;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-
-import org.python.util.PythonInterpreter;
+import java.util.logging.Logger;
 
 @Repository
 public class ConvDaoImpl implements ConvDao {
 
     @Override
-    public Map<String, String> getConv(String scriptPath, String userConv, String jsonPath) {
-        System.out.println(scriptPath);
-        Map<String, String> result = new HashMap<>();
+    public String getConv(String scriptPath, String userConv, String jsonPath) {
+        ProcessBuilder processBuilder = new ProcessBuilder("python", scriptPath, userConv);
+        String result = "";
 
-        PythonInterpreter python = new PythonInterpreter();
+        try {
+            Process process = processBuilder.start();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+            result = reader.readLine();
+        } catch (IOException e) {
+            Logger.getGlobal().severe(e.getMessage());
+        }
 
-        StringWriter out = new StringWriter();
-        python.setOut(out);
-
-        python.set("user_ment", userConv);
-        python.execfile(scriptPath);
-
-        String output = out.toString();
-        System.out.println(output);
-        python.close();
-
+        System.out.println("result: " + result);
         return result;
     }
-
 }

@@ -17,7 +17,7 @@ public class ConvServiceImpl implements ConvService {
     private ServletContext servletContext;
 
     @Override
-    public Map<String, String> getConv(String userConv) {
+    public String getConv(String userConv) {
         String scriptPath = servletContext.getRealPath("/resource/python/game/connectionManager.py");
         String jsonPath = servletContext.getRealPath("/resource/json/game/conversation.json");
         return convDao.getConv(scriptPath, userConv, jsonPath);

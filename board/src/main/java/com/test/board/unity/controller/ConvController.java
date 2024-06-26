@@ -16,7 +16,7 @@ public class ConvController {
     private ConvService convService;
 
     @PostMapping("/get")
-    public Map<String, String> getConv(@RequestBody String userConv) {
+    public String getConv(@RequestBody String userConv) {
         return convService.getConv(userConv);
     }
 }
