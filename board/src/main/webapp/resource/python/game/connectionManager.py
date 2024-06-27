@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
+import random
+
 import openai
 import json
 import os
 from statusVO import Daughter as d, load_daughter_status as lds
 import sys
-
 
 # 전체 대화 내용 저장용 리스트 테스트
 conversation_ = []
@@ -12,9 +13,11 @@ conversation_ = []
 # OpenAI API 키 설정
 api_key = ""
 openai.api_key = api_key
+
+
 # user_ment = ""
 
-#딸과의 대화 json 파일에 저장
+# 딸과의 대화 json 파일에 저장
 def read_comm_file(question, response):
     commu = {"user_ment": question, "gpt_ment": response}
     current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -36,8 +39,9 @@ def read_comm_file(question, response):
         with open(conversation_path, 'w', encoding='utf-8') as f:
             json.dump(current_conversation, f, indent=4, ensure_ascii=False)
 
+
 # gpt응답에서 순수 대답 분리.
-def get_origin_ment(daughter_reply) :
+def get_origin_ment(daughter_reply):
     gpt_str = None  # gpt_str에 기본값 할당
     if "GPT (Daughter): " in daughter_reply:
         start_gpt = daughter_reply.find("GPT (Daughter): ") + len("GPT (Daughter): ")
@@ -45,9 +49,9 @@ def get_origin_ment(daughter_reply) :
         gpt_str = daughter_reply[start_gpt:end_gpt].strip()
     return gpt_str
 
+
 # gpt응답에서 변경 스테이터스 분리.
 def extract_and_save_updated_status(daughter_reply, d):
-
     # daughter_reply 문자열에서 "**change"가 있는지 확인 하고 문자열 공백 제거 및 값 json파일 및 VO객체에 저장.
     if "**" in daughter_reply:
         start_index = daughter_reply.find("**") + len("**")
@@ -101,27 +105,29 @@ def extract_and_save_updated_status(daughter_reply, d):
         with open(update_path, 'w', encoding='utf-8') as f:
             json.dump(present_status, f, indent=4, ensure_ascii=False)
 
+
 # 부모 정보 받아오기.
 def get_parent_status():
-    try :
+    try:
         current_dir = os.path.dirname(os.path.abspath(__file__))
         relative_path = os.path.join(current_dir, '..', '..', 'json', 'game', 'parent_status.json')
         parent_status_path = relative_path
 
-        if os.path.exists(parent_status_path) :
-            with open(parent_status_path, 'r', encoding='utf-8') as f :
+        if os.path.exists(parent_status_path):
+            with open(parent_status_path, 'r', encoding='utf-8') as f:
                 parent_status = json.load(f)
                 # print(parent_status) 디버그용
                 return parent_status
-        else :
+        else:
             print("No Parent_Status.json file check the path or GameScene")
     except EOFError as e:
         print(json.dumps({"error": str(e)}))
 
+
 # java 에서 입력 프롬프트 받아오기.
 def get_ment_from_unity():
     try:
-        #user_ment = sys.stdin.readline().strip() # input 말고 파이썬 모듈 sys 의 내부 함수를 사용해 표준 입력 으로 한줄만 읽음.
+        # user_ment = sys.stdin.readline().strip() # input 말고 파이썬 모듈 sys 의 내부 함수를 사용해 표준 입력 으로 한줄만 읽음.
         user_ment = sys.argv[1]
         if user_ment == "END_OF_INPUT":
             return None
@@ -132,9 +138,9 @@ def get_ment_from_unity():
     except EOFError as e:
         print(json.dumps({"error": str(e)}))
 
+
 # gpt와 실질적인 연결.
 def ConnectionGpt(d_stat, set_d):
-
     userInfo = get_parent_status()
     username = userInfo['username']
     usersex = userInfo['usersex']
@@ -168,7 +174,7 @@ def ConnectionGpt(d_stat, set_d):
         }
     }
 
-    #gpt 설정 추가.
+    # gpt 설정 추가.
     set_text = (
             "1. You are role-playing a conversation with your parent."
             "	1-1)If User's sex is male Gpt you call user by dad"
@@ -228,32 +234,33 @@ def ConnectionGpt(d_stat, set_d):
     while True:
         user_request = get_ment_from_unity()
 
-        if user_request is None or user_request.lower() == 'close' :
+        if user_request is None or user_request.lower() == 'close':
             break
 
-        messages.append({"role": "user", "content": "{} (parent): {}".format(parent_status['parent']['name'], user_request)})
+        messages.append(
+            {"role": "user", "content": "{} (parent): {}".format(parent_status['parent']['name'], user_request)})
         try:
             response = openai.ChatCompletion.create(
                 model='gpt-3.5-turbo',
                 messages=messages,
-                max_tokens=300, #gpt response의 최대값 갯수.
+                max_tokens=300,  # gpt response의 최대값 갯수.
                 temperature=0.6
             )
             daughter_reply = response['choices'][0]['message']['content']
             messages.append({"role": "assistant", "content": "{}".format(daughter_reply)})
 
-            #----  실질적인 output 출력, 이후 출력값을 자바에서 읽음 ----
+            # ----  실질적인 output 출력, 이후 출력을 자바에서 읽음 ----
             ment_ = get_origin_ment(daughter_reply)
             if ment_ is not None:
                 extract_and_save_updated_status(daughter_reply, set_d)
-                json_response = json.dumps({"gpt_ment" : ment_}, ensure_ascii=False)
-                #print(json_response)
+                json_response = json.dumps({"gpt_ment": ment_}, ensure_ascii=False)
+                # print(json_response)
                 print(ment_)
                 # print(user_request)
             else:
-                # 대화 삑사리 나면 대화 끝내기.
-                print("No valid response to process.") # 오류
-            #---------------------------------------
+                # 응답이 null이면 저장된 대화 출력.
+                error_response()
+            # ---------------------------------------
 
         except Exception as e:
             print("error : ", e)
@@ -261,11 +268,32 @@ def ConnectionGpt(d_stat, set_d):
         read_comm_file(user_request, ment_)
         break
 
+
+def error_response():
+    case = random.randint(0, 5)
+
+    if case == 0:
+        print("죄송해요. 다시 말해주실수 있나요?")
+    elif case == 1:
+        print("다시 한번 말해주세요.")
+    elif case == 2:
+        print("다시 말해주시겠어요?")
+    elif case == 3:
+        print("죄송해요. 다시 말해주시겠어요?")
+    elif case == 4:
+        print("다시 한번 말해주시겠어요?")
+    elif case == 5:
+        print("죄송해요. 다시 말해주시겠어요?")
+    else:
+        print("다시 한번 말해주세요.")
+
+
 def main():
     d_stat = lds()
     set_d = d()
 
     ConnectionGpt(d_stat, set_d)
+
 
 if __name__ == "__main__":
     main()
